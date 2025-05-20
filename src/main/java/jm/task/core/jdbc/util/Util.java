@@ -4,17 +4,16 @@ import java.sql.*;
 
 public class Util {
 
-    protected static final String url = "jdbc:mysql://@localhost:3306/testdb";
-    protected static final String driver = "com.mysql.jdbc.Driver";
-    protected static final String user = "root";
-    protected static final String password = "Root";
+    private static final String URL = "jdbc:mysql://@localhost:3306/testdb";
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String DB_USER = "root";
+    private static final String DB_PASSWORD = "Root";
 
     public static Connection getConnection() {
         Connection conn = null;
         try {
-            Class.forName(driver);
-            conn = DriverManager.getConnection(url,user,password);
-            System.out.println("Подключение успешно");
+            Class.forName(DRIVER);
+            conn = DriverManager.getConnection(URL, DB_USER, DB_PASSWORD);
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
